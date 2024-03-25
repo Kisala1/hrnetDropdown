@@ -1,4 +1,7 @@
-export function Dropdown({
+import React from 'react';
+import PropTypes from 'prop-types';
+
+export default function Dropdown({
   name,
   options,
   containerStyle,
@@ -35,3 +38,14 @@ export function Dropdown({
     </div>
   );
 }
+
+Dropdown.propTypes = {
+  /**
+   * The content of label and select
+   */
+  name: PropTypes.string,
+  /**
+   * The content of option
+   */
+  options: PropTypes.object,
+};

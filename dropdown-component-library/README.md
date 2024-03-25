@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Dropdown 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce dropdown nécessite 2 paramètres : name et options  
+```  
+name = "string"  
+options = ["string", "string", "string"]
+```  
+name représente la nomination des balises label et select.  
+options représente le contenu des différents option dans le select.  
+  
+Le dropdown a un style par défaut, si vous voulez le modifier il faudra utiliser les nominations suivantes :  
+  
+containerStyle, labelStyle et selectStyle
 
-## Available Scripts
+## Installation 
 
-In the project directory, you can run:
+Dans votre terminal veuillez écrire le code suivant :  
+  
+### Si npm :  
+```
+npm i @kisala/hrnet-dropdown
+```
+### Si yarn :  
+```
+yarn i @kisala/hrenet-dropdown
+```
+## Utilisation
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Après avoir installer le package sur votre projet.  
+Pour l'utiliser, voici un exemple :  
+  ```
+import { Dropdown } from '@kisala/hrnet-dropdown';  
+<Dropdown
+    name={'States'}
+    options={states.States.map((state) => state.name)}
+/>
+```  
+  
+Dans cet exemple, les données dans options étaient dans un fichier JSON et étaient écrites comme ceci :  
+  
+```
+{
+  "States": [
+    {
+      "name": "Alabama",
+      "abbreviation": "AL"
+    },  
+    ...]}  
+```  
+### Changer le style d'un élément
+  
+Voici un exemple pour changer le style :  
+  ```  
+const changeSelectStyle = {
+  color: 'white',
+  backgroundColor: 'black',
+};  
+  
+<Dropdown
+    name={'Department'}
+    options={departments.Departments.map((department) => department.name)}
+    selectStyle={changeSelectStyle}
+/>
+  ```
